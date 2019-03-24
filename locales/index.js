@@ -1,0 +1,1 @@
+export default () => ['cn', 'en']

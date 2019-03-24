@@ -1,0 +1,21 @@
+{
+  "index": {
+    "menu_1": "首页",
+    "menu_2": "房产购买",
+    "menu_3": "房产通证购买",
+    "menu_4": "房产通证交易",
+    "menu_5": "申请通证发行",
+    "menu_6": "客户服务",
+    "menu_7": "资讯",
+    "menu_8": "登录",
+    "menu_9": "注册"
+  },
+  "home": {
+    "title": "Bienvenue",
+    "introduction": "Ceci est un texte d'introduction en FranÃ§ais."
+  },
+  "about": {
+    "title": "Ã propos",
+    "introduction": "Cette page est faite pour vous donner plus d'informations."
+  }
+}

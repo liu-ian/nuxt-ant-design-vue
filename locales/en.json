@@ -1,0 +1,21 @@
+{
+  "index": {
+    "menu_1": "Home",
+    "menu_2": "Buy",
+    "menu_3": "Buy PTs",
+    "menu_4": "Trade PTs",
+    "menu_5": "Apply PTO",
+    "menu_6": "Services",
+    "menu_7": "Media",
+    "menu_8": "Log in",
+    "menu_9": "Sign Up"
+  },
+  "home": {
+    "title": "Bienvenue",
+    "introduction": "Ceci est un texte d'introduction en FranÃ§ais."
+  },
+  "about": {
+    "title": "Ã propos",
+    "introduction": "Cette page est faite pour vous donner plus d'informations."
+  }
+}

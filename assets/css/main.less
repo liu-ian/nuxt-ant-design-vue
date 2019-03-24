@@ -1,0 +1,76 @@
+html, body {
+  background-color: #fff;
+  color: #000;
+  letter-spacing: 0.5px;
+  font-family: Open Sans, SF Pro Text, Helvetica Neue, Helvetica, Arial, sans-serif, Microsoft YaHei !important;
+  height: 100vh;
+  margin: 0;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+a, a:hover, a:focus, a:visited {
+  color: #000;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  max-height: 289px;
+}
+
+.content {
+  background: #fff;
+  padding: 24px;
+  min-height: e("calc(100vh - 179px)")
+}
+
+/******************样式覆盖 Menu********************/
+.ant-layout-header {
+  background: #232933 !important;
+}
+
+.ant-menu-dark, .ant-menu-dark .ant-menu-sub {
+  background: #232933 !important;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: #232933 !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected > a, .ant-menu-dark .ant-menu-item-selected > a:hover {
+  color: #2EA9DF !important;
+}
+
+.ant-menu-dark .ant-menu-item, .ant-menu-dark .ant-menu-item-group-title, .ant-menu-dark .ant-menu-item > a {
+  color: #FFFFFF;
+}
+
+.ant-menu-item, .ant-menu-submenu-title {
+  padding: 0 11px !important;
+}
+
+/******************样式覆盖 breadcrumb********************/
+.ant-breadcrumb-link-befor {
+  color: #2EA9DF;
+}
+
+.ant-breadcrumb > span:last-child {
+  color: rgba(0, 0, 0, 0.85)
+}
+
+/******************样式覆盖 pages********************/
+.ant-pagination-item-active {
+  background-color: #2EA9DF !important;
+}
+
+.ant-pagination-item-active a {
+  color: #ffffff !important;
+}
+
+
