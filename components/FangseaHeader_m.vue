@@ -1,7 +1,7 @@
 <template>
     <a-layout-header class="header">
         <div class="header-content">
-            <nuxt-link to="/pc">
+            <nuxt-link to="/mobile">
                 <div class="logo">
                 </div>
             </nuxt-link>
@@ -12,32 +12,32 @@
                     :defaultSelectedKeys="['1']"
                     :style="{ lineHeight: '64px',maxWidth: '750px' }">
                 <a-menu-item key="1">
-                    <nuxt-link to="/pc">{{$t('index.menu_1')}}</nuxt-link>
+                    <nuxt-link to="/mobile">{{$t('index.menu_1')}}</nuxt-link>
                 </a-menu-item>
                 <a-menu-item key="2">
-                    <nuxt-link to="/pc/buy">{{$t('index.menu_2')}}</nuxt-link>
+                    <nuxt-link to="/mobile/buy">{{$t('index.menu_2')}}</nuxt-link>
                 </a-menu-item>
                 <a-menu-item key="3">
-                    <nuxt-link to="/pc/BuyPts">{{$t('index.menu_3')}}</nuxt-link>
+                    <nuxt-link to="/mobile/BuyPts">{{$t('index.menu_3')}}</nuxt-link>
                 </a-menu-item>
                 <a-menu-item key="4">
-                    <nuxt-link to="/pc">{{$t('index.menu_4')}}</nuxt-link>
+                    <nuxt-link to="/mobile">{{$t('index.menu_4')}}</nuxt-link>
                 </a-menu-item>
                 <a-menu-item key="5">
-                    <nuxt-link to="/pc">{{$t('index.menu_5')}}</nuxt-link>
+                    <nuxt-link to="/mobile">{{$t('index.menu_5')}}</nuxt-link>
                 </a-menu-item>
                 <a-menu-item key="6">
-                    <nuxt-link to="/pc">{{$t('index.menu_6')}}</nuxt-link>
+                    <nuxt-link to="/mobile">{{$t('index.menu_6')}}</nuxt-link>
                 </a-menu-item>
                 <a-menu-item key="7">
-                    <nuxt-link to="/pc">{{$t('index.menu_7')}}</nuxt-link>
+                    <nuxt-link to="/mobile">{{$t('index.menu_7')}}</nuxt-link>
                 </a-menu-item>
             </a-menu>
             <div class="menu-right">
                 <a-button ghost class="menu-bt">{{$t('index.menu_8')}}</a-button>
                 <span class="line">|</span>
                 <a-button ghost class="menu-bt">{{$t('index.menu_9')}}</a-button>
-                <nuxt-link to="/pc/UserCenter/RealEstate"><img src="~/assets/img/setting.png" class="setting">
+                <nuxt-link to="/mobile/UserCenter/RealEstate"><img src="~/assets/img/setting.png" class="setting">
                 </nuxt-link>
                 <a-dropdown>
                     <a class="ant-dropdown-link" href="javascript:;">

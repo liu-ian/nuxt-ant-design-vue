@@ -7,23 +7,39 @@ module.exports = {
         meta: [
             {charset: 'utf-8'},
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-            {hid: 'description', name: 'description', content: 'Nuxt.js project'}
+            {hid: 'description', name: 'description', content: 'Nuxt.js project'},
+            {'http-equiv': 'pragma', content: 'no-cache'},
+            {'http-equiv': 'cache-control', content: 'no-cache'},
+            {'http-equiv': 'expires', content: '0'}
         ],
         link: [
             {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
-        ]
+        ],
+        script: [
+            { src: 'http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js', type: 'text/javascript', charset: 'utf-8'}
+        ],
+        // 不对<script>标签中内容做转义处理
+        __dangerouslyDisableSanitizers: ['script']
     },
     /*
     ** Global CSS
     */
     css: ['~/assets/css/main.less'],
-    /*
-    ** Add axios globally
-    */
+    vue: {
+        config: {
+            productionTip: true,
+            devtools: true
+        }
+    },
     build: {
         vendor: ['axios'],
         cache: true,
         parallel: true,
+        postcss: [
+            require('postcss-px2rem')({
+                remUnit: 75
+            })
+        ],
         extend(config, {isDev, isClient}) {
             config.module.rules.push({
                 test: /\.less$/,
@@ -65,7 +81,8 @@ module.exports = {
      */
     plugins: [
         {src: '~/plugins/antd.js', ssr: true},
-        {src: '~/plugins/i18n.js', ssr: true}
+        {src: '~/plugins/i18n.js', ssr: true},
+        {src: '~/plugins/route.js', ssr: true}
     ],
     /**
      * i18n
