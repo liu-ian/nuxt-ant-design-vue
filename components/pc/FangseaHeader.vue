@@ -38,7 +38,9 @@
                     <a-button ghost class="menu-bt">{{$t('index.menu_8')}}</a-button>
                 </nuxt-link>
                 <span class="line">|</span>
-                <a-button ghost class="menu-bt">{{$t('index.menu_9')}}</a-button>
+                <nuxt-link to="/pc/register">
+                    <a-button ghost class="menu-bt">{{$t('index.menu_9')}}</a-button>
+                </nuxt-link>
                 <nuxt-link to="/pc/UserCenter/RealEstate"><img src="~/assets/img/setting.png" class="setting">
                 </nuxt-link>
                 <a-dropdown>
@@ -105,44 +107,6 @@
 </script>
 
 <style lang="less">
-    #components-layout-demo-top .logo {
-        width: 120px;
-        height: 31px;
-        background-image: url('../static/logo.png');
-        margin: 16px 22px 16px 0;
-        float: left;
-        background-repeat: round;
-    }
-
-    .header-content {
-        width: 1120px;
-        margin: 0 auto;
-        position: relative;
-
-        .menu-right {
-            position: absolute;
-            top: 0;
-            right: 0;
-
-            .ant-dropdown-link {
-                text-decoration: none;
-                color: #ffffff;
-            }
-        }
-
-        .line {
-            color: #979797;
-        }
-
-        .menu-bt {
-            padding: 0 3px;
-            border: none;
-        }
-
-        .setting {
-            cursor: pointer;
-            margin: 0 15px;
-        }
-    }
+    @import '../../assets/css/pc/main.less';
 
 </style>

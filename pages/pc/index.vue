@@ -1,5 +1,5 @@
 <template>
-    <a-layout id="components-layout-demo-top" class="layout">
+    <a-layout id="components-layout-pc-top" class="layout">
         <fs-head :SelectedKey="key"/>
         <section class="container">
             <a-layout-content style="padding: 0 50px">
@@ -256,8 +256,8 @@
 
 <script>
     import axios from '~/plugins/axios'
-    import FsHead from '~/components/FangseaHeader'
-    import fonter from '~/components/Footer'
+    import FsHead from '~/components/pc/FangseaHeader'
+    import fonter from '~/components/pc/Footer'
 
     const columns = [
         {title: 'Full Name', width: 150, dataIndex: 'name', key: 'name', fixed: 'left'},

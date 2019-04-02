@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import 'ant-design-vue/dist/antd.less'
 import antd from 'ant-design-vue'
 Vue.use(antd)
 

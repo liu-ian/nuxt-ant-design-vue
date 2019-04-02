@@ -1,5 +1,5 @@
 <template>
-    <a-layout id="components-layout-demo-top" class="layout">
+    <a-layout id="components-layout-top" class="layout">
         <fs-head :SelectedKey="key"/>
         <a-layout class="user-center-content">
             <a-layout-sider width="200" style="background: #fff">
@@ -50,8 +50,8 @@
 </template>
 
 <script>
-  import FsHead from '~/components/FangseaHeader'
-  import fonter from '~/components/Footer'
+  import FsHead from '~/components/pc/FangseaHeader'
+  import fonter from '~/components/pc/Footer'
 
   export default {
     data () {

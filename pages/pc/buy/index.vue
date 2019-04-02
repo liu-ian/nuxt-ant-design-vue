@@ -1,5 +1,5 @@
 <template>
-    <a-layout id="components-layout-demo-top" class="layout">
+    <a-layout id="components-layout-pc-top" class="layout">
         <fs-head :SelectedKey="key"/>
         <section class="container">
             <a-layout-content style="padding: 0 50px">
@@ -27,16 +27,13 @@
 
 <script>
   // import axios from '~/plugins/axios'
-  import FsHead from '~/components/FangseaHeader'
-  import fonter from '~/components/Footer'
+  import FsHead from '~/components/pc/FangseaHeader'
+  import fonter from '~/components/pc/Footer'
 
   export default {
     async asyncData ({app}) {
       let {data} = await app.$axios.get('/proxy')
       return {users: data}
-    },
-    async fetch ({store}) {
-      await store.dispatch('updateJwt', '1008611')
     },
     data () {
       return {
@@ -46,12 +43,6 @@
       }
     },
     methods: {
-      updateNowLang () {
-        this.$i18n.locale = this.$i18n.locale === 'en' ? 'cn' : 'en'
-      },
-      updateJwt () {
-        this.$store.dispatch('updateJwt', 9527)
-      },
       onClick ({key}) {
         console.log(`Click on item ${key}`)
       }

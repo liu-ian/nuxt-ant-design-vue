@@ -6,11 +6,16 @@ module.exports = {
         title: 'FangSea',
         meta: [
             {charset: 'utf-8'},
-            {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'},
+            {
+                name: 'viewport',
+                content: 'maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0'
+            },
             {hid: 'description', name: 'description', content: 'Nuxt.js project'},
             {'http-equiv': 'pragma', content: 'no-cache'},
-            {'http-equiv': 'cache-control', content: 'no-cache'},
-            {'http-;equiv': 'expires', content: '0'}
+            {'http-equiv': 'cache-control', content: 'no-cache, no-store, must-revalidate'},
+            {'http-equiv': 'expires', content: '0'},
+            {'http-equiv': "X-UA-Compatible", content: "IE=edge"}, // 让IE使用最新的浏览器渲染
+            {name: "apple-mobile-web-app-capable", 'content': "yes"}, // 删除默认的苹果工具栏和菜单栏
         ],
         link: [
             {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
@@ -26,7 +31,7 @@ module.exports = {
     /*
     ** Global CSS
     */
-    css: ['~/assets/css/main.less'],
+    css: ['~/assets/css/common.less', 'ant-design-vue/dist/antd.less'],
     vue: {
         config: {
             productionTip: true,

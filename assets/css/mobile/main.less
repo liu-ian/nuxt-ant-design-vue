@@ -1,0 +1,89 @@
+html {
+  font-size: 625%;
+}
+
+/****************抽屉动画****************/
+.drawer-containel {
+  position: fixed;
+  animation: move 375ms;
+  -webkit-animation: move 375ms;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+
+}
+
+@keyframes move {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -85vw;
+  }
+}
+
+/****************body****************/
+#components-layout-mobile-top {
+  width: 100vw;
+
+  .header-content {
+
+    .hamb-bt {
+      border: none;
+      margin-top: -2px;
+    }
+
+    .hamb {
+      height: 2px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      background-color: rgb(255, 255, 255)
+    }
+
+    .hamb-top {
+      .hamb;
+      top: 5px
+    }
+
+    .hamb-middle {
+      .hamb;
+      margin-top: -1px;
+      top: 50%;
+    }
+
+    .hamb-bottom {
+      .hamb;
+      bottom: 5px;
+    }
+  }
+
+  .ant-layout-header {
+    padding: 0.1rem 0.16rem;
+    height: 0.44rem;
+    line-height: 0.44rem;
+    margin-bottom: 0.06rem;
+    box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.5), 0px 1px 10px 0px rgba(0, 0, 0, 0.42);
+  }
+
+  .logo {
+    width: 0.93rem;
+    height: 0.24rem;
+    background-image: url('../../../static/logo.png');
+    float: left;
+    background-repeat: round;
+  }
+
+  .content {
+    background: #fff;
+    padding: 0.16rem;
+    min-height: e("calc(100vh)")
+  }
+
+  footer {
+    padding: 0.20rem;
+    text-align: center;
+    border-top: 1px solid #ddd;
+  }
+}
+
+
