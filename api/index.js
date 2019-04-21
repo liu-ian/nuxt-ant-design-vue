@@ -11,6 +11,6 @@ app.use(users)
 
 // Export the server middleware
 module.exports = {
-  path: '/api',
-  handler: app
+    path: '/api',
+    handler: app
 }

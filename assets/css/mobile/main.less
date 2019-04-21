@@ -3,21 +3,37 @@ html {
 }
 
 /****************抽屉动画****************/
-.drawer-containel {
+.drawer-containel-left {
   position: fixed;
-  animation: move 375ms;
-  -webkit-animation: move 375ms;
+  animation: move-left 300ms cubic-bezier(0.9, 0, 0.3, 0.7);
+  -webkit-animation: move-left 300ms cubic-bezier(0.9, 0, 0.3, 0.7);
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
-
 }
 
-@keyframes move {
+@keyframes move-left {
   0% {
     left: 0;
   }
   100% {
     left: -85vw;
+  }
+}
+
+.drawer-containel-right {
+  position: fixed;
+  animation: move-right 300ms cubic-bezier(0.9, 0, 0.3, 0.7);
+  -webkit-animation: move-right 300ms cubic-bezier(0.9, 0, 0.3, 0.7);
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes move-right {
+  0% {
+    left: -85vw;
+  }
+  100% {
+    left: 0;
   }
 }
 
@@ -29,11 +45,11 @@ html {
 
     .hamb-bt {
       border: none;
-      margin-top: -2px;
+      margin-top: -0.02rem;
     }
 
     .hamb {
-      height: 2px;
+      height: 0.02rem;
       left: 0;
       position: absolute;
       width: 100%;
@@ -42,18 +58,18 @@ html {
 
     .hamb-top {
       .hamb;
-      top: 5px
+      top: 0.05rem
     }
 
     .hamb-middle {
       .hamb;
-      margin-top: -1px;
+      margin-top: -0.01rem;
       top: 50%;
     }
 
     .hamb-bottom {
       .hamb;
-      bottom: 5px;
+      bottom: 0.05rem;
     }
   }
 
@@ -62,7 +78,7 @@ html {
     height: 0.44rem;
     line-height: 0.44rem;
     margin-bottom: 0.06rem;
-    box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.5), 0px 1px 10px 0px rgba(0, 0, 0, 0.42);
+    box-shadow: 0 0.04rem 0.04rem -0.01rem rgba(0, 0, 0, 0.5), 0 0.01rem 0.1rem 0 rgba(0, 0, 0, 0.42);
   }
 
   .logo {

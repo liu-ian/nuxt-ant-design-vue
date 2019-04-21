@@ -1,14 +1,14 @@
 {
   "header": {
-    "item-1": "Home",
-    "item-2": "Buy",
-    "item-3": "Buy PTs",
-    "item-4": "Trade PTs",
-    "item-5": "Apply PTO",
-    "item-6": "Services",
-    "item-7": "Media",
-    "item-8": "Log in",
-    "item-9": "Sign Up"
+    "item-1": "首頁",
+    "item-2": "房產購買",
+    "item-3": "房产通证购买",
+    "item-4": "房产通证交易",
+    "item-5": "申请通证发行",
+    "item-6": "客户服务",
+    "item-7": "资讯",
+    "item-8": "登录",
+    "item-9": "注册"
   },
   "sider": {
     "item-1": "我的房产",

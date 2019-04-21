@@ -1,6 +1,6 @@
 <template>
     <a-layout id="components-layout-pc-top" class="layout">
-        <fs-head :SelectedKey="key"/>
+        <fs-head :SelectedKey="key" :SelectedType="type"/>
         <section class="container">
             <a-layout-content style="padding: 0 50px">
                 <a-breadcrumb style="margin: 16px 0">
@@ -155,8 +155,8 @@
                         <a-tab-pane tab="Button 按钮" key="3">
                             <a-row>
                                 <a-col :span="24">
-                                    <a-button type="primary" @click="updateJwt">
-                                        Vuex - JWT ： <span>{{$store.state.Jwt}}</span>
+                                    <a-button type="primary">
+                                        Vuex - JWT
                                     </a-button>
                                     <a-button @click="error">Default</a-button>
                                     <a-button @click="warning" type="primary" icon="cloud-upload">图标按钮</a-button>
@@ -255,11 +255,10 @@
 </template>
 
 <script>
-    import axios from '~/plugins/axios'
     import FsHead from '~/components/pc/FangseaHeader'
     import fonter from '~/components/pc/Footer'
 
-    const columns = [
+    const columns = Object.freeze([
         {title: 'Full Name', width: 150, dataIndex: 'name', key: 'name', fixed: 'left'},
         {title: 'Age', width: 100, dataIndex: 'age', key: 'age', fixed: 'left'},
         {title: 'Column 1', dataIndex: 'address', key: '1', width: 150},
@@ -277,7 +276,7 @@
             width: 100,
             scopedSlots: {customRender: 'action'}
         }
-    ]
+    ])
 
     const data = []
     for (let i = 0; i < 100; i++) {
@@ -290,16 +289,10 @@
     }
 
     export default {
-        async asyncData({store}) {
-            let {data} = await axios.get('/api/users')
-            return {users: data}
-        },
-        async fetch({store}) {
-            await store.dispatch('updateJwt', '1008611')
-        },
-        data() {
+        data () {
             return {
                 key: '1',
+                type: 0,
                 nowLang: '中文',
                 Jwt: '',
                 mode: 'inline',
@@ -345,27 +338,23 @@
                 }]
             }
         },
-        beforeCreate() {
+        beforeCreate () {
             this.form = this.$form.createForm(this)
         },
         methods: {
-            updateNowLang() {
+            updateNowLang () {
                 this.$i18n.locale = this.$i18n.locale === 'en' ? 'cn' : 'en'
             },
-            updateJwt() {
-                this.$message.success('改变Vuex成功')
-                this.$store.dispatch('updateJwt', 9527)
-            },
-            changeMode(checked) {
+            changeMode (checked) {
                 this.mode = checked ? 'vertical' : 'inline'
             },
-            changeTheme(checked) {
+            changeTheme (checked) {
                 this.theme = checked ? 'dark' : 'light'
             },
-            tabsCallback(key) {
+            tabsCallback (key) {
                 console.log(key)
             },
-            handleSubmit(e) {
+            handleSubmit (e) {
                 e.preventDefault()
                 this.form.validateFieldsAndScroll((err, values) => {
                     if (!err) {
@@ -373,11 +362,11 @@
                     }
                 })
             },
-            handleConfirmBlur(e) {
+            handleConfirmBlur (e) {
                 const value = e.target.value
                 this.confirmDirty = this.confirmDirty || !!value
             },
-            compareToFirstPassword(rule, value, callback) {
+            compareToFirstPassword (rule, value, callback) {
                 const form = this.form
                 if (value && value !== form.getFieldValue('password')) {
                     // callback('Two passwords that you enter is inconsistent!')
@@ -385,33 +374,33 @@
                     callback()
                 }
             },
-            validateToNextPassword(rule, value, callback) {
+            validateToNextPassword (rule, value, callback) {
                 const form = this.form
                 if (value && this.confirmDirty) {
                     form.validateFields(['confirm'], {force: true})
                 }
                 callback()
             },
-            enterIconLoading() {
+            enterIconLoading () {
                 this.iconLoading = {delay: 200}
                 setTimeout(() => {
                     this.iconLoading = false
                 }, 3000)
             },
-            handleCancel() {
+            handleCancel () {
                 this.previewVisible = false
             },
-            handlePreview(file) {
+            handlePreview (file) {
                 this.previewImage = file.url || file.thumbUrl
                 this.previewVisible = true
             },
-            handleChange({fileList}) {
+            handleChange ({fileList}) {
                 this.fileList = fileList
             },
-            error() {
+            error () {
                 this.$message.error('This is a message of error')
             },
-            warning() {
+            warning () {
                 this.$message.warning('This is message of warning')
             }
         },
@@ -419,7 +408,7 @@
             FsHead,
             fonter
         },
-        head() {
+        head () {
             return {
                 title: 'Fangsea.io 2.0'
             }

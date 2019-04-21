@@ -5,15 +5,16 @@
 </template>
 
 <script>
-    import "babel-polyfill"
+    import 'babel-polyfill'
 
     export default {
-        mounted() {
+        mounted () {
+            // 添加Dom渲染后的加载效果
             this.$nextTick(() => {
                 this.$nuxt.$loading.start()
                 setTimeout(() => {
                     this.$nuxt.$loading.finish()
-                }, 500)
+                }, 300)
             })
         }
     }

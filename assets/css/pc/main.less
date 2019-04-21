@@ -1,58 +1,63 @@
 /****************body****************/
 #components-layout-pc-top {
-  min-width: 1200px;
+    .ant-layout-header{
+        height: 70px;
+        line-height: 70px;
+    }
+    min-width: 1200px;
 
-  .header-content {
-    width: 1120px;
-    margin: 0 auto;
-    position: relative;
+    .header-content {
+        width: 1140px;
+        margin: 0 auto;
+        position: relative;
 
-    .menu-right {
-      position: absolute;
-      top: 0;
-      right: 0;
+        .menu-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
 
-      .ant-dropdown-link {
-        text-decoration: none;
-        color: #ffffff;
-      }
+            .ant-dropdown-link {
+                text-decoration: none;
+                color: #ffffff;
+            }
+        }
+
+        .line {
+            color: #979797;
+        }
+
+        .menu-bt {
+            padding: 0 3px;
+            border: none;
+        }
+
+        .setting {
+            cursor: pointer;
+            margin: 0 15px;
+        }
     }
 
-    .line {
-      color: #979797;
+    .logo {
+        width: 131px;
+        height: 34px;
+        background-image: url('../../../static/logo.png');
+        margin: 16px 22px 16px 0;
+        float: left;
+        background-repeat: round;
     }
 
-    .menu-bt {
-      padding: 0 3px;
-      border: none;
+    .content {
+        background: #fff;
+        padding: 24px;
+        min-height: e("calc(100vh - 179px)")
     }
 
-    .setting {
-      cursor: pointer;
-      margin: 0 15px;
+    footer {
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #ddd;
     }
-  }
-
-  .logo {
-    width: 120px;
-    height: 31px;
-    background-image: url('../../../static/logo.png');
-    margin: 16px 22px 16px 0;
-    float: left;
-    background-repeat: round;
-  }
-
-  .content {
-    background: #fff;
-    padding: 24px;
-    min-height: e("calc(100vh - 179px)")
-  }
-
-  footer {
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-  }
 }
 
 

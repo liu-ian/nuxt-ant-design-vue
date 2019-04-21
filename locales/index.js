@@ -1,1 +1,1 @@
-export default () => ['cn', 'en']
+export default () => ['tw', 'cn', 'en']
