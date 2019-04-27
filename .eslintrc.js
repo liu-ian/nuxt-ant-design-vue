@@ -38,7 +38,17 @@ module.exports = {
             4
         ],
         // 使用es6语法定义变量
-        "no-var": 2
+        "no-var": 2,
+        // 定义过的变量必须使用
+        'no-unused-vars': [
+            'warn',
+            {
+                vars: 'all',
+                args: 'none',
+                caughtErrors: 'none',
+                ignoreRestSiblings: true
+            }
+        ],
     },
     globals: {}
 }

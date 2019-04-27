@@ -1,9 +1,13 @@
 import Locale from '~/locales'
 
+/**
+ * 全局变量
+ * @returns {{locales, locale: *, token: string}}
+ */
 export const state = () => ({
     locales: Locale(),
     locale: Locale()[0],
-    userId: ''
+    token: ''
 })
 
 export const mutations = {
@@ -17,11 +21,11 @@ export const mutations = {
         }
     },
     /**
-     * @param userId 登录用户ID
+     * @param token 登录用户ID
      * @constructor
      */
-    SET_USER_ID (state, userId) {
-        state.userId = userId
+    SET_TOKEN (state, token) {
+        state.token = token
     }
 }
 
@@ -35,9 +39,9 @@ export const actions = {
     },
     /**
      * @param commit 用户ID修改
-     * @param userId 用户ID
+     * @param token 用户ID
      */
-    updateUserId ({commit}, userId) {
-        commit('SET_USER_ID', userId)
+    updateToken ({commit}, token) {
+        commit('SET_TOKEN', token)
     }
 }

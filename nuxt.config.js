@@ -95,93 +95,113 @@ module.exports = {
         color: '#41B883'
     },
     /**
+     * 请求地址
+     */
+    env: {
+        HOST: '192.168.91.203',
+        PORT: '80'
+    },
+    /**
      * 启动端口
      * 默认: 3000
      */
     server: {
-        port: 3000
-        // host: '0.0.0.0'
+        port: 80,
+        host: '0.0.0.0'
     },
     /**
      * 跨域代理
      */
     modules: ['@nuxtjs/axios'],
     axios: {
-        proxy: true,
+        proxy: process.env.NODE_ENV === 'development', // 是否使用代理
         // prefix: '',
         credentials: true
     },
     proxy: {
         // 免责条款
-        '/v2/cms/set/query/app': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : 'http://192.168.91.203',
-            changeOrigin: true
+        '/api/v2/cms/config/query': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cbe6fd00c98ef644e7f8e36/register' : 'http://192.168.91.84:8080',
+            changeOrigin: true,
+            pathRewrite: {'^/api': ''}
         },
         // 手机区号
-        '/v2/user/query_intercode': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb3faeae8c2f21d36dcccb3/userLogin' : 'http://192.168.91.203',
-            changeOrigin: true
+        '/api/v2/user/areacode/query': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cbe6fe60c98ef644e7f8e43/userLogin' : '/api/v2',
+            changeOrigin: true,
+            pathRewrite: {'^/api': ''}
         },
         // 注册验证码
-        '/v2/user/get_validate': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb3faeae8c2f21d36dcccb3/userLogin' : 'http://192.168.91.203',
-            changeOrigin: true
+        '/api/v2/user/verifiycode/get': {
+            target: (process.env.NODE_ENV === 'development') ? ' https://www.easy-mock.com/mock/5cbea42394b5467c127394d6/userCenter-2' : '/api/v2',
+            changeOrigin: true,
+            pathRewrite: {'^/api': ''}
         },
         // 用户注册
-        '/v2/user/register': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : 'http://192.168.91.203',
-            changeOrigin: true
+        '/api/v2/user/register': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cbe6fd00c98ef644e7f8e36/register' : '/api/v2',
+            changeOrigin: true,
+            pathRewrite: {'^/api': ''}
         },
         // 用户登录
-        '/v2/user/user_login': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb3faeae8c2f21d36dcccb3/userLogin' : 'http://192.168.91.203',
-            changeOrigin: true
+        '/api/v2/user/login': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cbe6fe60c98ef644e7f8e43/userLogin' : '/api/v2',
+            changeOrigin: true,
+            pathRewrite: {'^/api': ''}
         },
         // 用户基本信息
-        '/v2/user/query/info': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : 'http://192.168.91.203',
-            changeOrigin: true
+        '/api/v2/user/info/query': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cbe6fd00c98ef644e7f8e36/register' : '/api/v2',
+            changeOrigin: true,
+            pathRewrite: {'^/api': ''}
         },
         // 用户登录历史
-        '/v2/user/query_login_his': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb3faeae8c2f21d36dcccb3/userLogin' : 'http://192.168.91.203',
-            changeOrigin: true
+        '/api/v2/user/login/histroy/query': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cbe6fe60c98ef644e7f8e43/userLogin' : '/api/v2',
+            changeOrigin: true,
+            pathRewrite: {'^/api': ''}
         },
         // 绑定账号，输入号码（手机/邮箱）后，发送验证码前的数据验证
-        '/v2/user/bind/check': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : 'http://192.168.91.203',
+        '/api/v2/user/account/bind/check': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cbea42394b5467c127394d6/userCenter-2' : '/api/v2',
             changeOrigin: true,
-            pathRewrite: {'^/easy-mock': ''}
+            pathRewrite: {'^/api': ''}
         },
         // 绑定手机/邮箱账号，发送验证码后的数据验证
-        '/v2/user/bind': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : 'http://192.168.91.203',
+        '/api/v2/user/account/bind': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cbea42394b5467c127394d6/userCenter-2' : '/api/v2',
             changeOrigin: true,
-            pathRewrite: {'^/easy-mock': ''}
+            pathRewrite: {'^/api': ''}
         },
         // 验证账号是否是本人的
-        '/v2/user/check/me': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : 'http://192.168.91.203',
+        '/api/v2/user/check/me': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : '/api/v2',
             changeOrigin: true,
-            pathRewrite: {'^/easy-mock': ''}
+            pathRewrite: {'^/api': ''}
         },
         // 验证账号是否被使用
-        '/v2/user/check/use': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : 'http://192.168.91.203',
+        '/api/v2/user/check/use': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : '/api/v2',
             changeOrigin: true,
-            pathRewrite: {'^/easy-mock': ''}
+            pathRewrite: {'^/api': ''}
         },
         // 换绑账号
-        '/v2/user/bind/change': {
-            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : 'http://192.168.91.203',
+        '/api/v2/user/account/bind/change': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb43460bc1dcb694ade2b76/register' : '/api/v2',
             changeOrigin: true,
-            pathRewrite: {'^/easy-mock': ''}
+            pathRewrite: {'^/api': ''}
         },
         // 检查密码
-        '/v2/user/modifiy_password': {
-            target: (process.env.NODE_ENV === 'development') ? ' https://www.easy-mock.com/mock/5cb71c1c1a800d6337800087/updatePsw' : 'http://192.168.91.203',
+        '/api/v2/user/modifiy_password': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb71c1c1a800d6337800087/updatePsw' : '/api/v2',
             changeOrigin: true,
-            pathRewrite: {'^/easy-mock': ''}
+            pathRewrite: {'^/api': ''}
+        },
+        // 三级联动
+        '/api/v2/getData': {
+            target: (process.env.NODE_ENV === 'development') ? 'https://www.easy-mock.com/mock/5cb85831d123f60eac85d616' : '/api/v2',
+            changeOrigin: true,
+            pathRewrite: {'^/api': ''}
         }
     }
 }

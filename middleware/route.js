@@ -7,18 +7,18 @@ export default ({app, redirect, req}) => {
         let flag = req.headers['user-agent'].match(clientType)
         // eslint-disable-next-line
         let mobileFlag = req.url.indexOf('/mobile') !== -1,
-            pcFlag = req.url.indexOf('/pc') !== -1
+            computerFlag = req.url.indexOf('/computer') !== -1
         if (flag) {
-            if (pcFlag) {
-                path = `/mobile${req.url.substr(3, req.url.length)}`
+            if (computerFlag) {
+                path = `/mobile${req.url.substr(9, req.url.length)}`
             } else {
                 path = mobileFlag ? req.url : `/mobile${req.url}`
             }
         } else {
             if (mobileFlag) {
-                path = `/pc${req.url.substr(7, req.url.length)}`
+                path = `/computer${req.url.substr(7, req.url.length)}`
             } else {
-                path = pcFlag ? req.url : `/pc${req.url}`
+                path = computerFlag ? req.url : `/computer${req.url}`
             }
         }
         if (path !== req.url) {
@@ -32,18 +32,18 @@ export default ({app, redirect, req}) => {
             let flag = navigator.userAgent.match(clientType)
             // eslint-disable-next-line
             let mobileFlag = to.path.indexOf('/mobile') !== -1,
-                pcFlag = to.path.indexOf('/pc') !== -1
+                computerFlag = to.path.indexOf('/computer') !== -1
             if (flag) {
-                if (pcFlag) {
-                    path = `/mobile/${to.path.substr(3, to.path.length)}`
+                if (computerFlag) {
+                    path = `/mobile/${to.path.substr(9, to.path.length)}`
                 } else {
                     path = mobileFlag ? to.path : `/mobile${to.path}`
                 }
             } else {
                 if (mobileFlag) {
-                    path = `/pc/${to.path.substr(8, to.path.length)}`
+                    path = `/computer/${to.path.substr(8, to.path.length)}`
                 } else {
-                    path = pcFlag ? to.path : `/pc${to.path}`
+                    path = computerFlag ? to.path : `/computer${to.path}`
                 }
             }
             if (path !== to.path) {

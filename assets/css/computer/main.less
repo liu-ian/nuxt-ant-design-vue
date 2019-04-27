@@ -1,0 +1,64 @@
+/****************body****************/
+#components-layout-computer-top {
+    .ant-layout-header{
+        height: 70px;
+        line-height: 70px;
+    }
+    min-width: 1200px;
+
+    .header-content {
+        width: 1140px;
+        margin: 0 auto;
+        position: relative;
+
+        .menu-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+
+            .ant-dropdown-link {
+                text-decoration: none;
+                color: #ffffff;
+            }
+        }
+
+        .line {
+            color: #979797;
+        }
+
+        .menu-bt {
+            padding: 0 3px;
+            border: none;
+        }
+
+        .setting {
+            cursor: pointer;
+            margin: 0 15px;
+        }
+    }
+
+    .logo {
+        width: 131px;
+        height: 34px;
+        background-image: url('../../../static/logo.png');
+        margin: 16px 22px 16px 0;
+        float: left;
+        background-repeat: round;
+    }
+
+    .content {
+        background: #fff;
+        padding: 24px;
+        min-height: e("calc(100vh - 179px)")
+    }
+
+    footer {
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #ddd;
+    }
+}
+
+
+

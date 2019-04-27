@@ -19,63 +19,63 @@
                 <template slot="title">
                     <ul class="drawer-title">
                         <nuxt-link to="/mobile">
-                            <li :class="SelectedKey === 1 ? 'drawer-title-li-active' : ''">
+                            <li :class="SelectedKey === 1 ? 'drawer-title-li-active' : ''" @click="onClose">
                                 {{$t('header.item-1')}}&nbsp<span v-show="localeLange !== 'English'">(Home)</span>
                             </li>
                         </nuxt-link>
-                        <li :class="SelectedKey === 2 ? 'drawer-title-li-active' : ''">
+                        <li :class="SelectedKey === 2 ? 'drawer-title-li-active' : ''" @click="onClose">
                             {{$t('header.item-2')}}&nbsp<span v-show="localeLange !== 'English'">(Buy)</span>
                         </li>
-                        <li :class="SelectedKey === 3 ? 'drawer-title-li-active' : ''">
+                        <li :class="SelectedKey === 3 ? 'drawer-title-li-active' : ''" @click="onClose">
                             {{$t('header.item-3')}}&nbsp<span v-show="localeLange !== 'English'">(Buy PTs)</span>
                         </li>
-                        <li :class="SelectedKey === 4 ? 'drawer-title-li-active' : ''">
+                        <li :class="SelectedKey === 4 ? 'drawer-title-li-active' : ''" @click="onClose">
                             {{$t('header.item-4')}}&nbsp<span v-show="localeLange !== 'English'">(Trade PTs)</span>
                         </li>
-                        <li :class="SelectedKey === 5 ? 'drawer-title-li-active' : ''">
+                        <li :class="SelectedKey === 5 ? 'drawer-title-li-active' : ''" @click="onClose">
                             {{$t('header.item-5')}}&nbsp<span v-show="localeLange !== 'English'">(Apply PTO)</span>
                         </li>
-                        <li :class="SelectedKey === 6 ? 'drawer-title-li-active' : ''">
+                        <li :class="SelectedKey === 6 ? 'drawer-title-li-active' : ''" @click="onClose">
                             {{$t('header.item-6')}}&nbsp<span v-show="localeLange !== 'English'">(Services)</span>
                         </li>
-                        <li :class="SelectedKey === 7 ? 'drawer-title-li-active' : ''">
+                        <li :class="SelectedKey === 7 ? 'drawer-title-li-active' : ''" @click="onClose">
                             {{$t('header.item-7')}}&nbsp<span v-show="localeLange !== 'English'">(Media)</span>
                         </li>
                     </ul>
                     <div class="slide-item">
                         <section v-show="!isLogin">
-                            <nuxt-link to="/mobile/login">
-                                <span class="loginbtn link_btn"
+                            <nuxt-link to="/mobile/user/login">
+                                <span class="loginbtn link_btn" @click="onClose"
                                       :class="SelectedType === 1 ? 'drawer-title-li-active' :''">
                                     {{$t('header.item-8')}}
                                 </span>
                             </nuxt-link>
-                            <nuxt-link to="/mobile/register">
-                                <span class="loginbtn link_btn"
+                            <nuxt-link to="/mobile/user/register">
+                                <span class="loginbtn link_btn" @click="onClose"
                                       :class="SelectedType === 2 ? 'drawer-title-li-active' :''">
                                     {{$t('header.item-9')}}
                                 </span>
                             </nuxt-link>
                         </section>
                         <ul class="drawer-title" v-show="isLogin">
-                            <li :class="centerKey === 1 ? 'drawer-title-li-active' : ''">
+                            <li :class="centerKey === 1 ? 'drawer-title-li-active' : ''" @click="onClose">
                                 {{$t('sider.item-1')}}
                             </li>
-                            <li :class="centerKey === 2 ? 'drawer-title-li-active' : ''">
+                            <li :class="centerKey === 2 ? 'drawer-title-li-active' : ''" @click="onClose">
                                 {{$t('sider.item-2')}}
                             </li>
-                            <li :class="centerKey === 3 ? 'drawer-title-li-active' : ''">
+                            <li :class="centerKey === 3 ? 'drawer-title-li-active' : ''" @click="onClose">
                                 {{$t('sider.item-3')}}
                             </li>
-                            <li :class="centerKey === 4 ? 'drawer-title-li-active' : ''">
+                            <li :class="centerKey === 4 ? 'drawer-title-li-active' : ''" @click="onClose">
                                 {{$t('sider.item-4')}}
                             </li>
-                            <li :class="centerKey === 5 ? 'drawer-title-li-active' : ''">
-                                <nuxt-link to="/mobile/UserCenter/MyMessage">
+                            <li :class="centerKey === 5 ? 'drawer-title-li-active' : ''" @click="onClose">
+                                <nuxt-link to="/mobile/user/UserCenter/MyMessage">
                                     {{$t('sider.item-5')}}
                                 </nuxt-link>
                             </li>
-                            <li :class="centerKey === 6 ? 'drawer-title-li-active' : ''">
+                            <li :class="centerKey === 6 ? 'drawer-title-li-active' : ''" @click="onClose">
                                 {{$t('sider.item-6')}}
                             </li>
                             <li :class="centerKey === 7 ? 'drawer-title-li-active' : ''" @click="loginOut">
@@ -114,18 +114,23 @@
 <script>
     export default {
         name: 'fshead',
-        props: ['SelectedKey', 'SelectedType'],
+        props: ['SelectedKey', 'SelectedType', 'centerKey'],
         data () {
             return {
-                key: '',
-                isLogin: false,
-                centerKey: '',
+                // 显示抽屉
                 visible: false,
+                // 国际化下拉框
                 locales: ['繁體中文', 'English', '简体中文'],
-                localeLange: '繁體中文'
+                // 默认语言
+                localeLange: '繁體中文',
+                // 国际化为英文，切换显示效果
+                isEnglish: false,
+                // 是否登录
+                isLogin: false
             }
         },
         mounted () {
+            // 设置同时出现消息个数
             this.$message.config({
                 maxCount: 1
             })
@@ -135,12 +140,13 @@
                 sessionStorage.setItem('locale', 'tw')
             }
             // 获取用户登录状态
-            if (sessionStorage.getItem('userId') !== null) {
-                this.$store.dispatch('updateUserId', sessionStorage.getItem('userId'))
+            if (sessionStorage.getItem('token') !== null) {
+                this.$store.dispatch('updateToken', sessionStorage.getItem('token'))
                 this.isLogin = true
             } else {
                 this.isLogin = false
             }
+            // 同步国际化
             switch (sessionStorage.getItem('locale')) {
             case 'tw' :
                 this.localeLange = '繁體中文'
@@ -198,8 +204,8 @@
             loginOut () {
                 this.onClose()
                 this.$router.push({path: '/mobile'})
-                this.$store.dispatch('updateUserId', '')
-                sessionStorage.removeItem('userId')
+                this.$store.dispatch('updateToken', '')
+                sessionStorage.removeItem('token')
                 this.isLogin = false
             }
         }
@@ -214,12 +220,10 @@
         border: none;
         display: block;
         height: 0.28rem;
-        margin-right: 0.15rem;
         width: 0.28rem;
         z-index: 1000;
-        position: absolute;
-        right: 0;
-        top: 0.1rem;
+        float: right;
+        margin-right: -0.02rem;
     }
 
     .ant-drawer-content-wrapper {
@@ -317,6 +321,9 @@
 
     .drawer-title-li-active {
         color: #2EA9DF !important;
+        a {
+            color: #2EA9DF !important;
+        }
     }
 
     .slide-boby-change {

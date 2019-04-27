@@ -1,6 +1,6 @@
 <template>
     <a-layout id="components-layout-mobile-top" class="layout" ref="mobile-top" :class="drawer">
-        <fs-head :SelectedKey="key" :SelectedType="type" @openDrawer="openDrawer" @closeDrawer="closeDrawer"/>
+        <fs-head :SelectedKey="key" :SelectedType="type" :centerKey="centerKey" @openDrawer="openDrawer" @closeDrawer="closeDrawer"/>
         <section class="container">
             <a-layout-content>
                 <div class="content-login content">
@@ -19,6 +19,7 @@
             return {
                 key: 1,
                 type: 0,
+                centerKey: 0,
                 drawer: {'drawer-containel-left': false, 'drawer-containel-right': false}
             }
         },
